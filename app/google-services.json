@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296793246836",
+    "project_id": "final-project-e5c60",
+    "storage_bucket": "final-project-e5c60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296793246836:android:eba8851994303bcadcd521",
+        "android_client_info": {
+          "package_name": "kenharpe.iu.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKFvI50q-wN2W1jxw_-Y1K5B_Rg1FVPuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
