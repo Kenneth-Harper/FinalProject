@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kenharpe.iu.finalproject.databinding.FragmentHomeBinding
 import kenharpe.iu.finalproject.databinding.FragmentRestaurantBinding
@@ -46,6 +47,9 @@ class RestaurantFragment : Fragment()
             }
         })
 
+        binding.buttonRestaurantCheckOut.setOnClickListener {
+            view.findNavController().navigate(R.id.checkOutFragment)
+        }
         return view
 
     }

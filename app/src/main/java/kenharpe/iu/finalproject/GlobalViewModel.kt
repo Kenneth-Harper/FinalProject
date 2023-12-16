@@ -13,6 +13,7 @@ import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kenharpe.iu.finalproject.model.Food
+import kenharpe.iu.finalproject.model.Order
 import kenharpe.iu.finalproject.model.Restaurant
 import kenharpe.iu.finalproject.model.User
 import java.time.Instant
@@ -62,6 +63,11 @@ class GlobalViewModel : ViewModel() {
     // Order Live Data
     private val _foodChoices = MutableLiveData(mutableMapOf<Food, Int>())
     val foodChoices : LiveData<Map<Food, Int>> get() = _foodChoices as LiveData<Map<Food, Int>>
+
+    var timePlaced = Date.from(Instant.now())
+    var orderInstructions = ""
+    var orderAddress = ""
+    var orderDate = ""
 
 
     // Navigation Live Data
@@ -129,6 +135,7 @@ class GlobalViewModel : ViewModel() {
     private fun setUpDatabase() {
         val database = Firebase.firestore
         userCollection = database.collection("users")
+        orderCollection = database.collection("orders")
         restaurantCollection = database.collection("restaurants")
 
         val restaurantQuery = restaurantCollection.get().addOnSuccessListener { snapshot ->
@@ -141,6 +148,14 @@ class GlobalViewModel : ViewModel() {
             }
         }
     }
+
+    fun placeOrder()
+    {
+        var newOrder = Order()
+        newOrder.userID = currentUser.value!!.id
+        orderCollection.add(newOrder)
+    }
+
 
     fun updateName(name: String) {
         _currentUser.value!!.name = name

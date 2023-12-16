@@ -40,6 +40,10 @@ class CheckOutFragment : Fragment()
         binding.buttonModifyOrder.setOnClickListener {
             view.findNavController().navigate(R.id.restaurantFragment)
         }
+
+        binding.buttonPlaceOrder.setOnClickListener {
+            viewModel.placeOrder()
+        }
         return view
     }
 }
